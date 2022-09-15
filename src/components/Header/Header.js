@@ -319,7 +319,7 @@ export default function Header(props) {
               className={classes.profileMenuLink}
               color="primary"
               // onClick={() => signOut(userDispatch, props.history)}
-              onClick={() => logout()}
+              onClick={() => logout({ returnTo: window.location.origin })}
             >
               خروج
             </Typography>
