@@ -1,0 +1,43 @@
+name: Main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: node
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install all dependencies
+        run: yarn
+      - name: Build
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
+          CI: false
+        run:  yarn build
+      - name: Upload Static Pages
+        uses: actions/upload-artifact@v2
+        with:
+          name: static-pages
+          path: build
+
+  deploy-github-pages:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download Static Pages
+        uses: actions/download-artifact@v2
+        with:
+          name: static-pages
+          path: build
+      - name: Deploy To The Github Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages
+          folder: build
