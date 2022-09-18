@@ -151,6 +151,18 @@ export default {
         overflowX : 'hidden !important'
       }
     },
+    MuiButton:{
+      label:{
+        fontFamily : 'Shabnam !important'
+      },
+      endIcon:{
+        marginRight:'8px',
+        marginLeft:'-4px'
+      }
+    },
+
+
+
 
   },
 };

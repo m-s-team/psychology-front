@@ -30,6 +30,7 @@ import BookList from "../../pages/BookList/BookList";
 import EditBook from "../../pages/BookList/EditBook";
 import MoviesList from "../../pages/movies/MoviesList";
 import Profile from "../../pages/profile/Profile";
+import JamesBarret from "../../pages/James_Barrett_Test/JamesBarret";
 
 function Layout(props) {
   var classes = useStyles();
@@ -62,6 +63,7 @@ function Layout(props) {
               <Route path="/app/ui/maps" component={Maps} />
               <Route path="/app/ui/icons" component={Icons} />
               <Route path="/app/ui/charts" component={Charts} />
+              <Route path="/app/JamesBarret" component={JamesBarret} />
               <Route path="/app/test" component={TestPage} />
               <Route path="/app/bookList" component={BookList} />
               <Route path="/app/editBook" component={EditBook} />

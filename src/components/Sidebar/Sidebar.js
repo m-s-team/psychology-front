@@ -73,7 +73,7 @@ const structure = [
     {
         id: 10,
         label: "جیمز برت",
-        link: "/app/test",
+        link: "/app/JamesBarret",
         icon: <ChevronLeft/>
     },
     {
@@ -113,9 +113,9 @@ const structure = [
     //         {label: "وکسلر", link: ""},
     //     ],
     // },
-    {id: 6, type: "divider"},
+    {id: 13, type: "divider"},
     {
-        id: 8,
+        id: 14,
         label: "کیف پول",
         link: "",
         icon: <AttachMoney/>
@@ -132,7 +132,7 @@ const structure = [
     //     link: "/app/movies",
     //     icon: <MovieIcon/>
     // },
-
+    //
     // {id: 12, label: "داشبورد", link: "/app/dashboard", icon: <HomeIcon/>},
     // {
     //     id: 13,
