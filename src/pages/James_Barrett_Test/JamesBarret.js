@@ -1,6 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Button } from "@material-ui/core";
 import { Book } from "@material-ui/icons";
+
+import {useAuth0} from '@auth0/auth0-react';
+
+const Subtests = () => {
+    const {getAccessTokenSilently} = useAuth0();
+    const {user} = useAuth0();
+    const [subtests, setSubtests] = useState(null);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const token = await getAccessTokenSilently({
+                    audience: 'https://api.psychology.ml/',
+                    scope: 'openid profile email',
+                });
+                const response = await fetch('https://api.psychology.ml/barrett', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                setSubtests(await response.json());
+            } catch (e) {
+                console.error(e);
+            }
+        })();
+    }, [getAccessTokenSilently, user?.sub]);
+
+    if (!subtests)
+        return <div>Loading...</div>;
+
+    console.log(subtests);
+    return (
+        <div>
+            Subtests: {subtests.map(subtest => subtest.id).toString()}
+        </div>
+    );
+};
 
 const JamesBarret = () => {
   return (
@@ -21,4 +58,4 @@ const JamesBarret = () => {
   );
 };
 
-export default JamesBarret;
+export default Subtests;
