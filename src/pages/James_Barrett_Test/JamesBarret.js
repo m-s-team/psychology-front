@@ -19,6 +19,7 @@ const Subtests = () => {
                 const response = await fetch('https://api.psychology.ml/barrett', {
                     headers: {
                         Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json"
                     },
                 });
                 setSubtests(await response.json());

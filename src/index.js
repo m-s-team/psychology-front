@@ -27,7 +27,7 @@ ReactDOM.render(
           <Auth0Provider
               domain={domain}
               clientId={clientId}
-              audience={audience}
+              audience={"https://api.psychology.ml/"}
               redirectUri={window.location.origin}>
               <App />
           </Auth0Provider>
