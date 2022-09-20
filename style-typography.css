@@ -187,3 +187,6 @@ blockquote {
   margin-bottom: 0px;
   padding-bottom: 0px;
 } */
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}
